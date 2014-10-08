@@ -32,12 +32,15 @@ RUN gem install sass
 # Install MariaDB
 RUN apt-get install -y mariadb-server mariadb-client
 
-ADD my.cnf /etc/mysql/conf.d/my.cnf
-RUN chmod 664 /etc/mysql/conf.d/my.cnf
-ADD run.sh /usr/local/bin/run.sh
-RUN chmod +x /usr/local/bin/run.sh
+ADD my.cnf /etc/mysql/my.cnf
 
-VOLUME ["/var/lib/mysql"]
-EXPOSE 3306
-CMD ["/usr/local/bin/run.sh"]
+ADD mysql-init /usr/bin/mysql-init
+RUN chmod +x /usr/bin/mysql-init
+RUN /usr/bin/mysql-init
 
+ADD mysql-start /usr/bin/mysql-start
+RUN chmod +x /usr/bin/mysql-start
+
+EXPOSE 22 3306
+
+ENTRYPOINT ["/usr/bin/mysql-start"]
