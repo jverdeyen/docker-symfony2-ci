@@ -29,3 +29,15 @@ RUN bash -c "wget http://robo.li/robo.phar && chmod +x robo.phar && mv robo.phar
 RUN apt-get -y install ruby
 RUN gem install sass
 
+# Install MariaDB
+RUN apt-get install -y mariadb-server mariadb-client
+
+ADD my.cnf /etc/mysql/conf.d/my.cnf
+RUN chmod 664 /etc/mysql/conf.d/my.cnf
+ADD run.sh /usr/local/bin/run.sh
+RUN chmod +x /usr/local/bin/run.sh
+
+VOLUME ["/var/lib/mysql"]
+EXPOSE 3306
+CMD ["/usr/local/bin/run.sh"]
+
