@@ -2,6 +2,6 @@
 
 /usr/sbin/sshd
 
-/etc/init.d/mysql start
+/usr/bin/mysqld_safe &
 
 tail -f /var/log/mysql/error.log
