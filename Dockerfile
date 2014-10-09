@@ -30,14 +30,4 @@ RUN apt-get -y install ruby
 RUN gem install sass
 
 # Install MariaDB
-RUN apt-get install -y mariadb-server mariadb-client
-
-RUN sed -i -e"s/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mysql/my.cnf
-
-# Install starting script
-ADD ./start-database.sh /usr/local/bin/start-database.sh
-RUN chmod +x /usr/local/bin/start-database.sh
-
-EXPOSE 3306
-
-CMD ["/usr/local/bin/start-database.sh"]
+RUN apt-get install -y mariadb-client
