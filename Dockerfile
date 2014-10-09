@@ -3,8 +3,8 @@ MAINTAINER Joeri Verdeyen <info@jverdeyen.be>
 
 ENV DEBIAN_FRONTEND noninteractive
 
-echo "nameserver 8.8.8.8" >> /etc/resolv.conf
-echo "nameserver 8.8.4.4" >> /etc/resolv.conf
+RUN echo "nameserver 8.8.8.8" >> /etc/resolv.conf
+RUN echo "nameserver 8.8.4.4" >> /etc/resolv.conf
 
 # Ensure UTF-8 locale
 RUN locale-gen en_US.UTF-8
