@@ -3,12 +3,6 @@ MAINTAINER Joeri Verdeyen <info@jverdeyen.be>
 
 ENV DEBIAN_FRONTEND noninteractive
 
-# Ensure UTF-8 locale
-RUN locale-gen en_US.UTF-8
-ENV LANG       en_US.UTF-8
-ENV LC_ALL     en_US.UTF-8
-RUN sudo dpkg-reconfigure locales
-
 # Install nodejs
 RUN sudo apt-get update -qq
 RUN sudo apt-get -y -qq install software-properties-common git curl wget
