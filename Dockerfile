@@ -20,7 +20,8 @@ RUN sudo bash -c "wget http://getcomposer.org/composer.phar && chmod +x composer
 RUN sudo bash -c "wget http://robo.li/robo.phar && chmod +x robo.phar && mv robo.phar /usr/local/bin/robo"
 
 # Install Ruby and SASS
-RUN sudo apt-get -y install ruby
+RUN sudo apt-get -y install ruby rubygems
+
 RUN sudo gem install sass
 
 # Install MariaDB
