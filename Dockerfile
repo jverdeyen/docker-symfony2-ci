@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM bradrydzewski/base
 MAINTAINER Joeri Verdeyen <info@jverdeyen.be>
 
 ENV DEBIAN_FRONTEND noninteractive
