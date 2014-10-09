@@ -22,7 +22,7 @@ RUN sudo bash -c "wget http://robo.li/robo.phar && chmod +x robo.phar && mv robo
 # Install Ruby and SASS
 RUN sudo apt-get -y install ruby rubygems
 
-RUN sudo gem install sass
+RUN sudo gem install sass --no-ri --no-rdoc
 
 # Install MariaDB
 RUN sudo apt-get install -y mariadb-client
